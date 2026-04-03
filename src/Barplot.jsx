@@ -89,16 +89,27 @@ function Barplot({ data, width, height }) {
         );
       })}
 
-      <text x={5} y={ySource} className="source">
-        Data Source: Yan Holtz (student numbers),{" "}
+      <text x="5" y={ySource} className="source">
+        <tspan>
+          Data Sources: Yan Holtz (student numbers),{" "}
+          <a
+            href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_%28United_Nations%29"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Wikipedia - UN population data"
+          >
+            <tspan class="fa-brands">&#xf266;</tspan> (population numbers)
+          </a>{" "}
+        </tspan>
+        · Chart by Stefan Moog ·{" "}
         <a
-          href="https://en.wikipedia.org/wiki/List_of_countries_and_dependencies_by_population_%28United_Nations%29"
+          href="https://github.com/trekonom/d3-barchart"
           target="_blank"
           rel="noopener noreferrer"
+          title="GitHub"
         >
-          <tspan className="svg-link">Wikipedia</tspan>
-        </a>{" "}
-        (population numbers)
+          Code on <tspan class="fa-brands">&#xf09b;</tspan>
+        </a>
       </text>
     </svg>
   );
