@@ -31,9 +31,10 @@ function Barplot({ data, width, height }) {
       <text x={5} y={50} className="subtitle">
         <tspan dy={0}>
           Although the United States accounts for the largest number of students
-          in absolute terms,
+          in absolute terms, some smaller countries
         </tspan>
         <tspan dy="1.2em" x={5}>
+          like{" "}
           <tspan fontWeight="bold" fill="var(--green)">
             Ireland
           </tspan>
