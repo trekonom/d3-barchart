@@ -1,7 +1,6 @@
 import { useState } from "react";
 import * as d3 from "d3";
 import "./Barplot.css";
-import "./theme.css";
 
 // Initialize React Component
 function Barplot({ data, width, height }) {
@@ -13,17 +12,14 @@ function Barplot({ data, width, height }) {
   const yScale = d3
     .scaleBand()
     .domain(data.map((d) => d.country))
-    .range([0, height - 100]);
-  const barHeight = 25;
-  const barColor = "var(--blue)";
+    .range([0, height - 100 - 20]);
 
   const offsetx = 130;
   const offsety = 95;
 
   const axisMargin = 5;
-  const toHighlight = new Set(["Switzerland", "Ireland", "Singapore"]);
 
-  const ySource = offsety + 19 * (barHeight + 5) - 5 - barHeight / 2 + 10;
+  const ySource = height - 5;
 
   // 2️⃣ Render with React (JSX!) using the D3 maths
   return (
@@ -38,15 +34,15 @@ function Barplot({ data, width, height }) {
           in absolute terms,
         </tspan>
         <tspan dy="1.2em" x={5}>
-          <tspan font-weight="bold" fill="var(--green)">
+          <tspan fontWeight="bold" fill="var(--green)">
             Ireland
           </tspan>
           ,{" "}
-          <tspan font-weight="bold" fill="var(--red)">
+          <tspan fontWeight="bold" fill="var(--red)">
             Switzerland
           </tspan>
           , and{" "}
-          <tspan font-weight="bold" fill="var(--darkblue)">
+          <tspan fontWeight="bold" fill="var(--darkblue)">
             Singapore
           </tspan>{" "}
           stand out most on a per-capita basis.
@@ -54,10 +50,8 @@ function Barplot({ data, width, height }) {
       </text>
       {data.map((d, i) => {
         const x = xScale(d.students);
-        const yLabel =
-          offsety + (i + 1) * (barHeight + 5) - 5 - barHeight / 2 + 4;
-        const yBar = offsety + i * (barHeight + 5);
-
+        const yLabel = yScale(d.country) + offsety + yScale.bandwidth() / 2 + 1;
+        const yBar = yScale(d.country) + offsety;
         const align = d.students < 30 ? "left" : "right";
         const textOffset = d.students < 30 ? 5 : -5;
 
@@ -76,7 +70,7 @@ function Barplot({ data, width, height }) {
               x={offsetx}
               y={yBar}
               width={xScale(d.students)}
-              height={barHeight}
+              height={yScale.bandwidth() - 5}
               fill={d.color}
               className="bar"
             />
@@ -101,7 +95,7 @@ function Barplot({ data, width, height }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <tspan class="svg-link">Wikipedia</tspan>
+          <tspan className="svg-link">Wikipedia</tspan>
         </a>{" "}
         (population numbers)
       </text>
