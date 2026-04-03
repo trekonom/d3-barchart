@@ -32,15 +32,13 @@ const colorMap = {
   Singapore: "var(--darkblue)",
 };
 
-const transformedData = data
-  .map((d) => ({
-    ...d,
-    students_per_million: Number(
-      (d.students / (d.population / 1_000_000)).toFixed(2),
-    ),
-    color: colorMap[d.country] ?? "var(--blue)",
-  }))
-  .filter((d, i) => i < 18);
+const transformedData = data.map((d) => ({
+  ...d,
+  students_per_million: Number(
+    (d.students / (d.population / 1_000_000)).toFixed(2),
+  ),
+  color: colorMap[d.country] ?? "var(--blue)",
+}));
 
 // The chart dimensions (often passed as prop too)
 const width = 750;
