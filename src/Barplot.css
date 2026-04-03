@@ -1,0 +1,46 @@
+.text {
+  font-family: "IBM Plex Sans", sans-serif;
+  fill: var(--DarkGray);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.xAxisText,
+.yAxisText {
+  font-size: 12px;
+  font-family: "DM Mono", Consolas, monospace;
+}
+
+.label {
+  font-size: 12px;
+  font-family: "DM Mono", Consolas, monospace;
+}
+
+.left {
+  fill: var(--DarkGray);
+  text-anchor: start;
+}
+.right {
+  fill: #fff;
+  text-anchor: end;
+}
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 16px;
+  fill: var(--DarkGray);
+}
+
+.source {
+  font-size: 12px;
+  font-family: "DM Mono", Consolas, monospace;
+}
+
+.svg-link {
+  fill: var(--blue);
+  text-decoration: underline;
+  cursor: pointer;
+}
