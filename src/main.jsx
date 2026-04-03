@@ -43,8 +43,8 @@ const transformedData = data
   .filter((d, i) => i < 18);
 
 // The chart dimensions (often passed as prop too)
-const width = 800;
-const height = 1600;
+const width = 750;
+const height = 600;
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
